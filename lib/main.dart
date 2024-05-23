@@ -1,13 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 PageController controller = PageController();
@@ -20,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: PageView(
       controller: controller,
-      children: [
+      children:const [
         HomePage(
             subtitle:
                 'Consectetur magna ad incididunt dolor qui exercitation elit occaecat ullamco.',
@@ -42,12 +38,13 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  HomePage({required this.subtitle, required this.title, required this.index});
+ const HomePage({required this.subtitle, required this.title, required this.index});
 
   final String title;
   final String subtitle;
   final int index;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -62,7 +59,7 @@ class HomePage extends StatelessWidget {
                     onTap: () {
                       controller.jumpToPage(2);
                     },
-                    child: Text("skip"))
+                    child:const Text("skip"))
               ],
             ),
           ),
@@ -70,12 +67,12 @@ class HomePage extends StatelessWidget {
           Image.asset('assets/cuate.png'),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.black, fontSize: 24, fontWeight: FontWeight.w500),
           ),
           Text(
             subtitle,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 20, color: Colors.grey, fontWeight: FontWeight.w200),
           ),
           Row(
@@ -85,7 +82,7 @@ class HomePage extends StatelessWidget {
                 width: 10,
                 height: 10,
                 decoration: BoxDecoration(
-                    color: (index == 0) ? Color(0xFF8BA8B5) : Colors.grey,
+                    color: (index == 0) ? const Color(0xFF8BA8B5) : Colors.grey,
                     shape: BoxShape.circle),
               ),
               Padding(
@@ -94,7 +91,7 @@ class HomePage extends StatelessWidget {
                   width: 10,
                   height: 10,
                   decoration: BoxDecoration(
-                      color: (index == 1) ? Color(0xFF8BA8B5) : Colors.grey,
+                      color: (index == 1) ? const Color(0xFF8BA8B5) : Colors.grey,
                       shape: BoxShape.circle),
                 ),
               ),
@@ -102,7 +99,7 @@ class HomePage extends StatelessWidget {
                 width: 10,
                 height: 10,
                 decoration: BoxDecoration(
-                    color: (index == 2) ? Color(0xFF8BA8B5) : Colors.grey,
+                    color: (index == 2) ? const Color(0xFF8BA8B5) : Colors.grey,
                     shape: BoxShape.circle),
               ),
             ],
@@ -111,21 +108,21 @@ class HomePage extends StatelessWidget {
             onTap: () {
               if (controller.page == 2.0) {
                 controller.animateToPage(0,
-                    duration: Duration(seconds: 1), curve: Curves.slowMiddle);
+                    duration: const Duration(seconds: 1), curve: Curves.slowMiddle);
               } else {
                 print("object");
-                
-                controller.animateToPage(index+1,
-                    duration: Duration(seconds: 1), curve: Curves.slowMiddle);
+
+                controller.animateToPage(index + 1,
+                    duration: const Duration(seconds: 1), curve: Curves.slowMiddle);
               }
             },
             child: Container(
               width: 317,
               height: 54,
               decoration: BoxDecoration(
-                  color: Color(0xFF8BA8B5),
+                  color: const Color(0xFF8BA8B5),
                   borderRadius: BorderRadius.circular(20)),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Next",
                   style: TextStyle(
@@ -136,7 +133,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
         ],
